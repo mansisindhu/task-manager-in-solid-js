@@ -56,7 +56,7 @@ const App: Component = () => {
 
   return (
     <div class="flex flex-col items-center gap-5">
-      <h1 class="text-3xl my-8 font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+      <h1 class="text-3xl my-8 font-extrabold p-5 text-transparent sm:text-5xl text-[#0cc6af]">
         Task Manager App Ft. Solid JS
       </h1>
 
