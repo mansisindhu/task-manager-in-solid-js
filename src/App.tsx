@@ -1,4 +1,4 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createEffect, createSignal, For } from "solid-js";
 import { nanoid } from "nanoid";
 
 type Task = {
@@ -8,6 +8,7 @@ type Task = {
 };
 
 const App: Component = () => {
+  // const tasks = JSON.parse(window.localStorage.getItem("tasks") || "");
   const [taskList, setTaskList] = createSignal([] as Task[]);
 
   const addTask = () => {
@@ -38,6 +39,14 @@ const App: Component = () => {
     });
     setTaskList(newTaskList);
   };
+
+  const setToLocalStorage = (newTaskList: Task[]) => {
+    window.localStorage.setItem("tasks", JSON.stringify(newTaskList));
+  };
+
+  createEffect(() => {
+    setToLocalStorage(taskList());
+  });
 
   return (
     <div class="flex flex-col items-center gap-5">
