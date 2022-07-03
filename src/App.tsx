@@ -71,7 +71,13 @@ const App: Component = () => {
               <span class="absolute inset-0 transition-transform translate-x-1 translate-y-1 bg-teal-400 group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
               <div class="relative flex flex-col gap-3 items-center px-8 py-3 bg-white border-2 border-current">
-                <div class="text-xl font-semibold">{task.text}</div>
+                <div
+                  class={`text-xl font-semibold capitalize ${
+                    task.completed && "line-through"
+                  }`}
+                >
+                  {task.text}
+                </div>
                 <div class="flex gap-3">
                   <button
                     onClick={toggleStatus(task.id)}
