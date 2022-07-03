@@ -9,7 +9,13 @@ type Task = {
 
 const App: Component = () => {
   // const tasks = JSON.parse(window.localStorage.getItem("tasks") || "");
-  const [taskList, setTaskList] = createSignal([] as Task[]);
+  const [taskList, setTaskList] = createSignal([
+    {
+      text: "dummy task",
+      id: "124",
+      completed: false,
+    },
+  ] as Task[]);
 
   const addTask = () => {
     const taskInput = document.querySelector("#add-task") as HTMLInputElement;
